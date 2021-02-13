@@ -61,4 +61,7 @@ Route::get('productos/consulta', [ProductosController::class, 'formulario_consul
 Route::post('productos/consulta', [ProductosController::class, 'consultar'])->middleware(['auth']);
 Route::get('productos/{id}/{descripcion?}', [ProductosController::class, 'descripcion'])->middleware(['auth']);
 
+//usuarios
+Route::get('usuarios', [UsuariosController::class, 'index'])->name('listadoUsuarios');
+
 require __DIR__.'/auth.php';
