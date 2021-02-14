@@ -7,34 +7,38 @@
                 <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}"  style="color:white">
                         <img src="{{url('imagenes/logoblanco.png')}}" class="block h-10 w-auto fill-current text-gray-600">Granero Superior
-        
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex"  >
-                    <x-nav-link :href="route('listadoUsuarios')" :active="request()->routeIs('listadoUsuarios')" style="color:white">
-                        {{ __('Usuarios') }}
-                    </x-nav-link>
-                </div>
+                
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex"  >
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" style="color:white">
-                        {{ __('Dashboard') }}
+                        {{ __('Inicio') }}
                     </x-nav-link>
                 </div>
+
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex"  >
                     <x-nav-link :href="route('listadoClientes')" :active="request()->routeIs('listadoClientes')" style="color:white">
                         {{ __('Clientes') }}
                     </x-nav-link>
                 </div>
+
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex"  >
                     <x-nav-link :href="route('listadoCategorias')" :active="request()->routeIs('listadoCategorias')" style="color:white">
                         {{ __('Categorias') }}
                     </x-nav-link>
                 </div>
+
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex"  >
                     <x-nav-link :href="route('listadoProductos')" :active="request()->routeIs('listadoProductos')" style="color:white">
                         {{ __('Productos') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex"  >
+                    <x-nav-link :href="route('listadoUsuarios')" :active="request()->routeIs('listadoUsuarios')" style="color:white">
+                        {{ __('Usuarios') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -62,7 +66,7 @@
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Logout') }}
+                                {{ __('Cerrar sesión') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>

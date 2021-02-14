@@ -15,14 +15,14 @@ class CreateProductosTable extends Migration
     {
         Schema::create('productos', function (Blueprint $table) {
             $table->integer('id')->autoIncrement();
-            $table->string('nombreProducto',45);
+            $table->string('nombreProducto', 45);
             $table->integer('cantidad');
             $table->integer('precio');
-            $table->string('foto',45);
-            $table->integer('estadop')->default(1);
+            $table->string('foto', 45);
+            $table->integer('estado')->default(1);
             $table->integer('categoria');
             $table->foreign('categoria')->references('id')->on('categorias');
-            
+
             $table->timestamps();
         });
     }

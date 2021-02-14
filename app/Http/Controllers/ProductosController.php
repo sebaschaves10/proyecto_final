@@ -15,7 +15,7 @@ class ProductosController extends Controller
     {
         $productos = DB::table('productos as pro')
                     ->join('categorias as cat', 'pro.categoria', '=', 'cat.id')
-                    ->select('pro.id','pro.precio','pro.cantidad','pro.nombreProducto', 'pro.foto', 'cat.nombreCategoria', 'pro.categoria','pro.estadop')
+                    ->select('pro.id','pro.precio','pro.cantidad','pro.nombreProducto', 'pro.foto', 'cat.nombreCategoria', 'pro.categoria','pro.estado')
                     ->orderby('pro.id','asc')
                     ->get();
         return view('producto.listado', ['productos' => $productos]);
@@ -67,7 +67,7 @@ class ProductosController extends Controller
             $producto->nombreProducto = $request->input('nombrePro');
             $producto->cantidad = $request->input('cantidadPro');
             $producto->precio = $request->input('precioPro');
-            $producto->estadop = '1';
+            $producto->estado = '1';
             if($request->hasFile('urlfoto')){
                 $file = $request->file("urlfoto");
                 $nombrearchivo = $file->getClientOriginalName();
@@ -93,7 +93,7 @@ class ProductosController extends Controller
         $producto->nombreProducto = $request->input('nombrePro');
         $producto->cantidad = $request->input('cantidadPro');
         $producto->precio = $request->input('precioPro');
-        $producto->estadop = '1';
+        $producto->estado = '1';
         if($request->hasFile('urlfoto')){
             $file = $request->file("urlfoto");
             $nombrearchivo = $file->getClientOriginalName();
@@ -107,14 +107,14 @@ class ProductosController extends Controller
 
     public function eliminar($id){
         $producto = Producto::findOrFail($id);
-        $producto->estadop = '0';
+        $producto->estado = '0';
         $producto->save();
         return redirect()->route('listadoProductos');
     }
 
     public function activar($id){
         $producto = Producto::findOrFail($id);
-        $producto->estadop = '1';
+        $producto->estado = '1';
         $producto->save();
         return redirect()->route('listadoProductos');
     }

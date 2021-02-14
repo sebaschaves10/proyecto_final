@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Registrar') }}
         </h2>
     </x-slot>
 
@@ -20,21 +20,23 @@
                             <div class="col">
                                     <!-- First name -->
                                 <div class="md-form">
+                                Nombre Categoria
                                     <input type="text" class="form-control" placeholder="" aria-label="nombre" aria-describedby="basic-addon1" id="nombreCat" name="nombreCat" required>
-                                    <label for="materialRegisterFormFirstName">Nombre Categoria</label>
+                                    <label for="materialRegisterFormFirstName"> </label>
                                 </div>
                             </div>
 
                             <div class="col">
                                     <!-- First name -->
                                 <div class="md-form">
+                               Descripción
                                 <input type="text" class="form-control" placeholder="" aria-label="descripcion" aria-describedby="basic-addon1" id="descripcionCat" name="descripcionCat" required>
-                                    <label for="materialRegisterFormFirstName">Descripcion</label>
+                                    <label for="materialRegisterFormFirstName"> </label>
                                 </div>
                             </div>
                     </div>
                     <x-button class="btn btn-success" type="submit">{{ __('Registrar') }}</x-button>
-                    <x-button class="ml-4" type="reset" >{{ __('limpiar') }}</x-button>
+                    <x-button class="ml-4" type="reset" >{{ __('Limpiar') }}</x-button>
                     <a  href="{{route('listadoCategorias')}}" > <x-button type="button"  class="btn btn-warning">{{ __('Cancelar') }}</x-button><br></a>
 
                 </form>
