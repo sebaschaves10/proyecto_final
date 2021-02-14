@@ -6,6 +6,7 @@ use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\UsuariosController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 
 /*
@@ -63,5 +64,11 @@ Route::get('productos/{id}/{descripcion?}', [ProductosController::class, 'descri
 
 //usuarios
 Route::get('usuarios', [UsuariosController::class, 'index'])->name('listadoUsuarios');
+
+//Carrito
+Route::post('cart-add', [CartController::class , 'add'])->name('cart.add');
+Route::get('cart-checkout', [CartController::class , 'cart'])->middleware(['auth'])->name('cart.checkout');
+Route::get('cart-clear', [CartController::class , 'clear'])->middleware(['auth'])->name('cart.clear');
+Route::post('cart-removeitem', [CartController::class , 'removeitem'])->middleware(['auth'])->name('cart.removeitem');
 
 require __DIR__.'/auth.php';
