@@ -5,6 +5,7 @@ use App\Http\Controllers\Tienda;
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\ProductosController;
+use App\Http\Controllers\Administracion;
 use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\Auth\RegisteredUserController;
@@ -64,6 +65,8 @@ Route::get('productos/{id}/{descripcion?}', [ProductosController::class, 'descri
 
 //usuarios
 Route::get('usuarios', [UsuariosController::class, 'index'])->name('listadoUsuarios');
+Route::get('administracion', [Administracion::class, 'index'])->name('informacion');
+
 
 //Carrito
 Route::post('cart-add', [CartController::class , 'add'])->name('cart.add');
