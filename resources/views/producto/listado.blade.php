@@ -72,16 +72,12 @@
                                     <p class="card-text"> Precio: {{$p->precio}} </p>
                                     <p class="card-text"> Categoria: {{$p->nombreCategoria}} </p>
                                 </div>
-                                <a class="btn btn-warning" href="#" role="button" data-toggle="collapse" data-target="#comprar{{$p->id}}">Comprar</a>
-                                <form id="comprar{{$p->id}}" class="letra collapse" action='{{url("productos/comprar")}}' method="POST">
+                               
+                                <form action="{{route('cart.add')}}" method="POST">
                                     @csrf
+                                    <input type="hidden" name="producto_id" value="{{$p->id}}">
+                                    <input type="submit" name="btn" class="btn btn-successs" value="Agregar Carrito">
 
-                                    <div class="form-group">
-                                        <label for="cantidad">¿Cuántos ejemplares desea adquirir?</label>
-                                        <label style="background-color: light !important;">({{$p->cantidad}} unidades)</label>
-                                        <input required type="number" min='1' max='{{$p->cantidad}}' id="cantidad" name="cantidad" class="form-control" placeholder="Cantidad" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
-                                    </div>
-                                    <div align="center"><button type="submit">Añadir al carrito</button></div>
                                 </form>
                                 <a href='{{url("productos/detalle/$p->id" )}}' class="btn btn-primary"> Ver detalles </a>
                             </div>

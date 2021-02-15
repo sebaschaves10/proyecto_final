@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <script type="text/javascript">
                     function activarCat() {
-                        var respuesta = confirm("Desea activar la categoria??");
+                        var respuesta = confirm("¿Desea activar la categoria?");
                         if (respuesta == true) {
                             return true;
                         } else {
@@ -20,7 +20,7 @@
                     }
 
                     function desactivarCat() {
-                        var respuesta = confirm("Desea desactivar la categoria??");
+                        var respuesta = confirm("¿Desea desactivar la categoria?");
                         if (respuesta == true) {
                             return true;
                         } else {
@@ -64,10 +64,10 @@
                                         <table class="table" align="center">
                                             <thead class="black white-text">
                                                 <tr>
-                                                    <th>Op</th>
+                                                    <th>Opción</th>
                                                     <th>ID</th>
                                                     <th>Categoria</th>
-                                                    <th>Descripcion</th>
+                                                    <th>Descripción</th>
                                                     <th>Estado</th>
                                                 </tr>
                                             </thead>
@@ -76,26 +76,10 @@
                                                 <tr>
                                                     <td>
                                                         @if($c->estado==1)
-                                                        <div class="form-row">
-                                                            <div class="col-3">
-                                                                <a href="{{route('form_actualizaCategoria', $c->id)}}">
-                                                                    <x-button type="button" class="btn btn-warning">{{ __('✍🏻') }}</x-button><br>
-                                                                </a>
-                                                            </div>
-                                                            <div class="col-3">
-                                                                <a href="{{route('eliminarCategoria', $c->id)}}" onclick="return desactivarCat()">
-                                                                    <x-button type="button" class="btn btn-danger">{{ __('✖') }}</x-button><br>
-                                                                </a>
-                                                            </div>
-                                                        </div>
+                                                        <a href="{{route('form_actualizaCategoria', $c->id)}}" class="btn btn-warning">✍🏻</a>
+                                                        <a href="{{route('eliminarCategoria', $c->id)}}" class="btn btn-danger" onclick="return desactivarCat()"><i class="fa fa-close">✖️</i></a>
                                                         @else
-                                                        <div class="form-row">
-                                                            <div class="col-3">
-                                                                <a href="{{route('activarCategoria', $c->id)}}" onclick="return activarCat()">
-                                                                    <x-button type="button" class="btn btn-primary">{{ __('✔') }}</x-button><br>
-                                                                </a>
-                                                            </div>
-                                                        </div>
+                                                        <a href="{{route('activarCategoria', $c->id)}}" class="btn btn-primary" onclick="return activarCat()">✔️</a>
                                                         @endif
                                                     </td>
                                                     <td> {{ $c->id }} </td>
@@ -104,9 +88,9 @@
 
                                                     <td>
                                                         @if($c->estado==1)
-                                                        <span class="label bg-primary">Activado</span>
+                                                        <span class="btn btn-info">Activado</span>
                                                         @else
-                                                        <span class="label bg-warning">Desactivado</span>
+                                                        <span class="btn btn-dark">Desactivado</span>
                                                         @endif
                                                 </tr>
                                                 @endforeach

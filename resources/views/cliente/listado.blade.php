@@ -1,6 +1,6 @@
 <script type="text/javascript">
     function activar() {
-        var respuesta = confirm("Desea activar el cliente??");
+        var respuesta = confirm("¿Desea activar el cliente?");
         if (respuesta == true) {
             return true;
         } else {
@@ -10,7 +10,7 @@
     }
 
     function desactivar() {
-        var respuesta = confirm("Desea desactivar el cliente??");
+        var respuesta = confirm("¿Desea desactivar el cliente?");
         if (respuesta == true) {
             return true;
         } else {
@@ -61,7 +61,7 @@
                                     <div class="col">
                                         <form action="{{route('consulta_cliente')}}" method="POST" class="form-inline md-form mr-auto mb-4">
                                             @csrf
-                                            <input class="form-control mr-sm-2" type="number" name="busqueda" id="busqueda" placeholder="Buscar por cedula" aria-label="Search" required>
+                                            <input class="form-control mr-sm-2" type="number" name="busqueda" id="busqueda" placeholder="Ingrese cédula" aria-label="Search" required>
                                             <button class="btn btn-primary" type="submit" value="Buscar">Buscar</button>
                                         </form>
                                     </div>
@@ -73,13 +73,13 @@
                                     <table class="table">
                                         <thead class="black white-text">
                                             <tr>
-                                                <th>Op</th>
+                                                <th>Opción</th>
                                                 <th>ID</th>
                                                 <th>Cliente</th>
-                                                <th>Cedula</th>
-                                                <th>Direccion</th>
-                                                <th>Telefono</th>
-                                                <th>Genero</th>
+                                                <th>Cédula</th>
+                                                <th>Dirección</th>
+                                                <th>Teléfono</th>
+                                                <th>Género</th>
                                                 <th>Estado</th>
                                             </tr>
                                         </thead>
@@ -103,9 +103,9 @@
 
                                                 <td>
                                                     @if($c->estado==1)
-                                                    <span class="label bg-primary">Activado</span>
+                                                    <span class="btn btn-info">Activado</span>
                                                     @else
-                                                    <span class="label bg-warning">Desactivado</span>
+                                                    <span class="btn btn-dark">Desactivado</span>
                                                     @endif
                                             </tr>
                                             @endforeach
