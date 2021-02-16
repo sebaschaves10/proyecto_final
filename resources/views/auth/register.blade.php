@@ -1,9 +1,14 @@
-<x-guest-layout>
+
+<x-app-layout>
+<x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Registrar usuario') }}
+        </h2>
+    </x-slot>
+
+
     <x-auth-card>
         <x-slot name="logo">
-            <a href="/">
-                <img src="{{url('imagenes/logo.png')}}" class="block h-20 w-auto fill-current text-gray-600">
-            </a>
         </x-slot>
 
         <!-- Validation Errors -->
@@ -46,9 +51,6 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('¿Ya esta registrado?') }}
-                </a>
 
                 <x-button class="ml-4">
                     {{ __('Registrar') }}
@@ -56,4 +58,4 @@
             </div>
         </form>
     </x-auth-card>
-</x-guest-layout>
+    </x-app-layout>

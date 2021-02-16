@@ -407,9 +407,6 @@
             @else
             <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Iniciar</a>
 
-            @if (Route::has('register'))
-            <a href="{{ route('register') }}" class="text-sm text-gray-700 underline">Registrar</a>
-            @endif
             @endauth
         </div>
         @endif

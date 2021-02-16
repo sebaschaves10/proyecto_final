@@ -160,12 +160,12 @@ return [
     |
     */
     'extension_detector' => [
-        'xlsx'     => Excel::XLSX,
-        'xlsm'     => Excel::XLSX,
-        'xltx'     => Excel::XLSX,
-        'xltm'     => Excel::XLSX,
-        'xls'      => Excel::XLS,
-        'xlt'      => Excel::XLS,
+       // 'xlsx'     => Excel::XLSX,
+       // 'xlsm'     => Excel::XLSX,
+       // 'xltx'     => Excel::XLSX,
+       // 'xltm'     => Excel::XLSX,
+       // 'xls'      => Excel::XLS,
+       // 'xlt'      => Excel::XLS,
         'ods'      => Excel::ODS,
         'ots'      => Excel::ODS,
         'slk'      => Excel::SLK,

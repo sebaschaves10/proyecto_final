@@ -68,6 +68,8 @@ Route::get('productos/{id}/{descripcion?}', [ProductosController::class, 'descri
 //usuarios
 Route::get('usuarios', [UsuariosController::class, 'index'])->name('listadoUsuarios');
 Route::get('administracion', [Administracion::class, 'index'])->name('informacion');
+Route::get('usuarios/eliminar/{id}', [UsuariosController::class, 'eliminar'])->middleware(['auth'])->name('eliminarUsuario');
+Route::get('usuarios/activar/{id}', [UsuariosController::class, 'activar'])->middleware(['auth'])->name('activarUsuario');
 
 
 //Carrito

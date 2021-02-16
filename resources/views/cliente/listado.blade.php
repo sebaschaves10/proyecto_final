@@ -129,6 +129,7 @@
                                                     @else
                                                     <span class="btn btn-dark">Desactivado</span>
                                                     @endif
+                                                </td>
                                             </tr>
                                             @endforeach
                                         </tbody>
