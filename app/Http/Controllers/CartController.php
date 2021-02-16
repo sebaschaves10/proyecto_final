@@ -7,39 +7,58 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Cart;
 use App\Models\Producto;
+use App\Models\Checkout;
+use App\Exports\CheckoutExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CartController extends Controller
 {
     //
-    public function add(Request $request){
+    public function add(Request $request)
+    {
         // Realizar la actualizacion en la base de datos
-        $producto= Producto::findOrFail($request->producto_id);
+        $producto = Producto::findOrFail($request->producto_id);
         Cart::add(
             $producto->id,
             $producto->nombreProducto,
             $producto->precio,
             1,
-            
+
             $producto->categoria,
-            array("urlfoto"=>$producto->foto)
+            array("urlfoto" => $producto->foto)
 
         );
-        return back()->with('success',"$producto->nombreProducto se ha agregado con éxito al carrito!");
+        return back()->with('success', "$producto->nombreProducto se ha agregado con éxito al carrito!");
     }
-    public function cart(){
+    public function cart()
+    {
         return view('producto.checkout');
     }
 
-    public function removeitem(Request $request){
+    public function removeitem(Request $request)
+    {
         Cart::remove(
-            ['id' => $request->id,
-            
-        ]);
-        return back()->with('success',"producto eliminado con exito");
+            [
+                'id' => $request->id,
+
+            ]
+        );
+        return back()->with('success', "producto eliminado con exito");
     }
 
-    public function clear(){
+    public function clear()
+    {
         Cart::clear();
-        return back()->with('success',"cerrado");
+        return back()->with('success', "cerrado");
+    }
+
+    public function descarga_Excel()
+    {
+        return Excel::download(new CheckoutExport, 'checkout.xlsx');
+    }
+
+    public function descarga_PDF()
+    {
+        
     }
 }

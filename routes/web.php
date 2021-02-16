@@ -63,6 +63,7 @@ Route::get('productos/consulta', [ProductosController::class, 'formulario_consul
 Route::post('productos/consulta', [ProductosController::class, 'consultar'])->middleware(['auth']);
 Route::get('productos/{id}/{descripcion?}', [ProductosController::class, 'descripcion'])->middleware(['auth']);
 
+
 //usuarios
 Route::get('usuarios', [UsuariosController::class, 'index'])->name('listadoUsuarios');
 Route::get('administracion', [Administracion::class, 'index'])->name('informacion');
@@ -73,5 +74,7 @@ Route::post('cart-add', [CartController::class , 'add'])->name('cart.add');
 Route::get('cart-checkout', [CartController::class , 'cart'])->middleware(['auth'])->name('cart.checkout');
 Route::get('cart-clear', [CartController::class , 'clear'])->middleware(['auth'])->name('cart.clear');
 Route::post('cart-removeitem', [CartController::class , 'removeitem'])->middleware(['auth'])->name('cart.removeitem');
+Route::get('cart-checkout/descargaExcel', [CartController::class, 'descarga_Excel'])->name('exportar_Excel');
+Route::get('cart-checkout/descargaPDF', [CartController::class, 'descarga_PDF'])->name('descargar_PDF');
 
 require __DIR__.'/auth.php';
