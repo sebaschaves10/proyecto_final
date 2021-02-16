@@ -90,10 +90,7 @@
                                                     <a class="btn btn-success" href="{{route('listadoProductos')}}">Hacer Compra </a>
                                                     @endif
 
-                                                    <div align="center">
-                                                        <a href="{{route('exportar_Excel')}}" class="btn btn-primary">Exportar a Excel</a>
-                                                        <a href="{{route('descargar_PDF')}}" class="btn btn-danger">Descargar en PDF</a>
-                                                    </div>
+                                                   
                                                 </div>
                                             </div>
                                         </div>

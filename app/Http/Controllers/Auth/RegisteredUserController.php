@@ -46,6 +46,7 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
-        return redirect()->route('listadoUsuarios');
+        //return redirect()->route('listadoUsuarios');
+        return redirect(RouteServiceProvider::HOME);
     }
 }

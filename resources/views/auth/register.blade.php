@@ -1,6 +1,5 @@
-
-<x-app-layout>
-<x-slot name="header">
+<x-guest-layout>
+    <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Registrar usuario') }}
         </h2>
@@ -9,6 +8,9 @@
 
     <x-auth-card>
         <x-slot name="logo">
+            <a href="/">
+                <img src="{{url('imagenes/logo.png')}}" class="block h-20 w-auto fill-current text-gray-600">
+            </a>
         </x-slot>
 
         <!-- Validation Errors -->
@@ -35,22 +37,20 @@
             <div class="mt-4">
                 <x-label for="password" :value="__('Contraseña')" />
 
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
+                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
             </div>
 
             <!-- Confirm Password -->
             <div class="mt-4">
                 <x-label for="password_confirmation" :value="__('Confirmar Contraseña')" />
 
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
+                <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required />
             </div>
 
             <div class="flex items-center justify-end mt-4">
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                    {{ __('¿Ya esta registrado?') }}
+                </a>
 
                 <x-button class="ml-4">
                     {{ __('Registrar') }}
@@ -58,4 +58,4 @@
             </div>
         </form>
     </x-auth-card>
-    </x-app-layout>
+</x-guest-layout>
