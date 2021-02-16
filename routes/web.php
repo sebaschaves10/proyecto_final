@@ -25,6 +25,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('descripcion', [Administracion::class, 'general'] )->middleware(['auth'])->name('somos');
 Route::get('/dashboard',[Tienda::class,'index'])->middleware(['auth'])->name('dashboard');
 
 //Clientes
